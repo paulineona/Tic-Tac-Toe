@@ -1,0 +1,59 @@
+--- Working Fragments ---
+* must have a parent element
+* you cannot return 2 values
+
+--- Split Components ---
+* break it into smaller components
+
+
+--- Props ---
+
+* props are not automatically forwarded
+* props are like block scope - passed to a component from its parent and are accessible only within that component, similar to how block-scoped variables work.
+* unlike block-scoped variables, props can be "forwarded" to child components
+* this is done by using the spread operator (...) in the child component's props, like so: <ChildComponent {...props} />.
+
+Forwarded Props or Proxy Props
+
+--- setting component types dynamically ---
+
+* custom components must be passed as a dynamic value
+name = {FunctionName}
+
+*builtin elements like menu or div - starts with a lowercase
+name = "menu"
+
+
+====== public vs assets =======
+
+public folder - all files stored in public will always be available to website visitors
+
+src/assets folder - files are not made available to the public
+
+* use public/ for images not handled by the build process and generally available - images used directly on the index.html
+
+* use src/ for images that are used inside of components
+
+====== Updating old state =====
+
+* don't use this to update your state!
+
+const = [ isEditing, setIsEditing ] = useState(false)
+setIsEditing(!isEditing)
+
+* instead pass a function 
+
+const = [ isEditing, setIsEditing ] = useState(false)
+setIsEditing(wasEditing => !wasEditing)
+
+
+onChange - will trigger every keystrokes
+
+
+  function changeHandler(event) {
+    setNewName(event.target.value);
+  }
+
+
+target - refer to the element that did emit the event
+value - holds the value the user tried to enter
